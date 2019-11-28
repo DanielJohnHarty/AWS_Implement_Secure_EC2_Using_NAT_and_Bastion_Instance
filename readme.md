@@ -59,7 +59,7 @@ You can SSH to your BastionJumpBox now but your goal is to SSH to your BastionSe
 
 What we'll do is keep both keys on our device, and when we SSH to the jump box, we'll send two private keys - one for BastionJumpBox and one for BastionNATinstancePrivateKey.
 
-This can be a bit tricky and you'll need a couple of small, useful and free applications related to SSH. Putty, Puttygen and Pageant (all available here ![Putty Download Page](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) )
+This can be a bit tricky and you'll need a couple of small, useful and free applications related to SSH. Putty, Puttygen and Pageant (all available here [Putty Download Page](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) )
 
 1. You need to convert your .pem private key files to ppk files using the import/conversion function of puttygen. You can close this app now.
 2. Open pageant and press the add key button, then navigate to your keys and add them. This software runs as a service so you can close the window and it will continue to run in the background for when you need them.

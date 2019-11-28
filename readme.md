@@ -37,7 +37,7 @@ So create a new key pair called BastionNATinstancePrivateKey, download it and sa
 2.  Create a new security group when prompted called **BastionJumpBoxSG**. BastionJumpBoxSG should only allow SSH on port 22, from anywhere.
 3. When prompted, create a new keypair called **BastionJumpBoxKeyPair**. Download the private key and store it safely.
 4. For convenience, give it the name **BastionJumpBox** on the left most column of the instances, table.
-5**. Take a note of the BastionJumpBox private IP**. 
+5. **Take a note of the BastionJumpBox private IP**. 
 
 
 ### Creating your secure, final instance.

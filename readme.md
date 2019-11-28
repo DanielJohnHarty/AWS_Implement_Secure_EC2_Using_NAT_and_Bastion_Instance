@@ -1,4 +1,5 @@
-## Steps to ceate AWS Secure Infrastructure with linux instance on private subnet accessing internet through a NAT linux instance and external SSH access from the internet via a JumpBox (Bastion) linux instance.
+# Creating secure AWS infrastructures
+## Here we'll see the steps to create a secure AWS infrastructure. It will contain a linux EC2 instance on a private subnet which cannot be accessed using SSH except from a single instance from within our infrastructure, a Bastion instance AKA a jump box. Our secure EC2 instance will be able to access the internet freely, by passing all requests via a NAT instance. Being in a private subnet, there is no internet gateway and our secure instance cannot be accessed from the the internet.
 
 ### Setting up the network
 1. Create a VPC **BastionVPC** with CIDR block = **10.0.0.0/16**

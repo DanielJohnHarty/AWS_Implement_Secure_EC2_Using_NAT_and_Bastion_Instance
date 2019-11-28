@@ -2,18 +2,18 @@
 
 ### Setting up the network
 1. Create a VPC **BastionVPC** with CIDR block = **10.0.0.0/16**
-    -> All inbound and outbound traffic is allowed via the default NACL. For increased control, create a custom NACL and associate with this VPC which only allows the IPs, ports and protocols you expect
+    -> All inbound and outbound traffic is allowed via the default NACL. For increased control, create a custom NACL and associate with this VPC which only allows the IPs, ports and protocols you expect.
 
 2. Create an internet gateway (**BastionInternetGateway**).
 
-3. The created IGW will be 'detached' i.e. not attached to an exiosting VPC. Select BastionInternetGateway then press the action button, then attach to VPC. Attach to BastionVPC.
+3. The created IGW will be 'detached' i.e. not attached to an existing VPC. Select BastionInternetGateway then press the action button, then attach to VPC. Attach to BastionVPC.
 
 
 4. Create a subnet **BastionPublicSubnet** associated to BastionVPC with CIDR block = **10.0.1.0/24**
 
 5. Create a subnet **BastionPrivateSubnet** associated to BastionVPC with CIDR block = **10.0.2.0/24**
 
-## ROUTE TABLES
+**ROUTE TABLES**
 
 6. Click BastionPublicSubnet to see the associated information. Click the route table link, click the routes tab and then the edit routes button. Add a new route from **0.0.0.0/0 to BastionInternetGateway**. Make sure that BastionPublicSubnet's route table is associated to BastionPublicSubnet.
 
@@ -26,10 +26,8 @@
 3. During the process, you'll be asked about assigning a security group. Go ahead and create a new security group for this instance. Call it **BastionNATInstanceSG**.
 	-> SSH should be allowed on port 22 from anywhere (you can come back and further restrict this later once its working of you choose)
 	-> All ICMP - IP4 should be allowed on all ports from anywhere (you can come back and further restrict this later once its working of you choose e.g. to only http and https requests on ports 80 and 443 respectively)
-4. When you launch the instance, a window will pop up "Select an edxisting ke pair or create a new one." The key pair is composed of two parts, a public and a private key. The private key is very private and can only be downloaded now - so download it and store it securely. It is used to encrypt your log in details when you try to SSH into your instance.
-
+4. When you launch the instance, a window will pop up "Select an existing key pair or create a new one." The key pair is composed of two parts, a public and a private key. The private key is very private and can only be downloaded now - so download it and store it securely. It is used to encrypt your log in details when you try to SSH into your instance.
 The public key is stored on the instance, and is used to decrypt your login details. It will be automatically stored in the right place on the instance, so you don't need to worry about it.
-
 So create a new key pair called BastionNATinstancePrivateKey, download it and save it somewhere safe and secure on your device. You can now launch the instance with the big blue 'Launch' button.
 5. For convenience, add the label **BastionNATinstance** to the leftmost column (the 'Name' column) of the instances table.
 6. AWS instances are given a default configuration of Check Src/Dest is True. This means only traffic to or from the instance is allowed. As a Nat instance is acting as a traffic post office, you need to change this instance to **Check Src/Dest = Disabled** by selecting BastionNATinstance and using the Action->Networking options.

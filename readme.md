@@ -19,8 +19,6 @@
 
 7. In route tables, create a new one called **BastionPrivateRouteTable** and associated to BastionVPC. Once created, follow the link to the route table and check the subnet associations. THere should be no subnets associated right now.  Click the edit subnet associations button and associate **BastionPrivateSubnet**.
 
-FILLIN CREATE ADDITIONAL ROUTE TABLE, PRIVATE SHOULD BE MAIN AND PUBLIC SHOULD NOT
-
 
 ### Creating the NAT instance
 1. Navigate via the Services button to the EC2 instances.
@@ -61,12 +59,12 @@ You can SSH to your BastionJumpBox now but your goal is to SSH to your BastionSe
 
 What we'll do is keep both keys on our device, and when we SSH to the jump box, we'll send two private keys - one for BastionJumpBox and one for BastionNATinstancePrivateKey.
 
-This can be a bit tricky and you'll need a couple of small, useful and free applications related to SSH. Putty, Puttygen and Pageant (all available here ![Putty's Download Page](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) 
+This can be a bit tricky and you'll need a couple of small, useful and free applications related to SSH. Putty, Puttygen and Pageant (all available here ![Putty Download Page](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) )
 
 1. You need to convert your .pem private key files to ppk files using the import/conversion function of puttygen. You can close this app now.
 2. Open pageant and press the add key button, then navigate to your keys and add them. This software runs as a service so you can close the window and it will continue to run in the background for when you need them.
 3. Now open putty. This is used to SSH into a remote machine. On the left side panel, enable agent port forwarding on SSH->Auth.
 4. Now SSH to BastionJumpBox using the command **ssh <BastionJumpBoxPublicIP>**
-5. You'll find yourself controlling the BastionJumpBox instance. Now, remote into the BastionSecureFinalInstance using **ssh <BastionSecureFinalInstance>**. If all is well, you're controlling the remote instance BastionSecureFinalInstance which lives on a private subnet of your AWS infrastructure, with no internet access. Congrats nerd ^_^ .
+5. You'll find yourself controlling the BastionJumpBox instance. Now, remote into the BastionSecureFinalInstance using **ssh <BastionSecureFinalInstance>**. If all is well, you're controlling the remote instance BastionSecureFinalInstance which lives on a private subnet of your AWS infrastructure, with no internet access. Congrats nerd ^_^ 
 
 

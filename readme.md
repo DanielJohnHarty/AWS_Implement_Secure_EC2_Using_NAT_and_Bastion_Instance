@@ -1,7 +1,7 @@
 # Creating secure AWS infrastructures
 ## Here we'll see the steps to create a secure AWS infrastructure. It will contain a linux EC2 instance on a private subnet which cannot be accessed using SSH except from a single instance from within our infrastructure, a Bastion instance AKA a jump box. Our secure EC2 instance **will** be able to access the internet freely, by passing all requests via a NAT (Network Access Translator) acting as a network request re-direct. 
 
-##As our secure EC2 instance is in a private subnet i.e. with no internet gateway, our secure instance cannot be accessed from the the public internet, making it secure.
+## As our secure EC2 instance is in a private subnet i.e. with no internet gateway, our secure instance cannot be accessed from the the public internet, making it secure.
 
 ### Setting up the network
 
@@ -98,6 +98,6 @@ This can be a bit tricky and you'll need a couple of small, useful and free appl
 
 ## This has been long and complicated process, and may have been confusing for new AWS users. However this methodology is considered best practice and is a ubiquitous method of securing instances in the cloud from malicious attacks or interventions from unknown apps or people. Being aware and experienced with this methodology makes you more prepared for using cloud computing in a professional environment.
 
-#So congrats, you did it.
+# So congrats, you did it.
 
 

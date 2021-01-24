@@ -3,6 +3,8 @@
 
 ## As our secure EC2 instance is in a private subnet i.e. with no internet gateway, our secure instance cannot be accessed from the the public internet, making it secure.
 
+> While configuring security groups, be sure to only enable http 80, https 443 and custom ICMP - echo request, and don't configure them directly to IPs, connect them to security groups. Many people with a correct configuration believe that it's incorrect because they are unable to ping. Ping is only enabled  with ***Custom ICMP = echo request***. 
+
 ### Setting up the network
 
 > Here we'll create our VPC (*virtual private cloud*) and 2 subnets - one public, which has access to the public internet, and the other one private, which can not access the public internet. The fundamental factor in making this a secure system, is by tightly controlling who can access the instance from the public internet, and any instance on the private subnet is not accessible by default and by design.
